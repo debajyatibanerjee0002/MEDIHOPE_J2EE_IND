@@ -1,0 +1,100 @@
+*
+{
+	color: #fff;
+	font-weight: bold;
+}
+body
+{
+	background: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)),url(../IMAGES/background.png);
+	background-size: cover;
+	background-blend-mode: darken;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+.logo
+{
+	margin-top: 100px;
+    margin-left: 100px !important;
+    display: flex;
+}
+@keyframes cf3FadeInOut
+{
+	0%{
+		opacity:1;
+	}
+	45%{
+		opactiy:1;
+	}
+	55%{
+		opacity:0;
+	}
+	100%{
+		opacity:0;
+	}
+}
+@keyframes cf3FadeOutIn
+{
+	0%{
+		opacity:0;
+	}
+	45%{
+		opactiy:0;
+	}
+	55%{
+		opacity:1;
+	}
+	100%{
+		opacity:1;
+	}
+}
+
+
+#fade_out {
+  position:relative;
+  height:75%;
+  width:auto;
+}
+
+#fade_out img.top {
+  position:absolute;
+  -webkit-transition: opacity 2s linear;
+  -moz-transition: opacity 2s linear;
+  transition: opacity 2s linear;
+  
+	animation-name: cf3FadeInOut;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-direction: alternate;
+}
+#fade_out img.buttom {
+  position:absolute;
+  -webkit-transition: opacity 2s linear;
+  -moz-transition: opacity 2s linear;
+  transition: opacity 2s linear;
+  
+	animation-name: cf3FadeOutIn;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-direction: alternate;
+}
+
+.row
+{
+	display: flex !important;
+	
+}
+.form
+{
+	margin-left: 600px !important ;
+	margin-top: 70px !important ;
+}
+
+.form-container
+{
+	padding: 20px;
+	-webkit-box-shadow: -12px 11px 29px 8px rgba(0,0,0,0.67);
+	-moz-box-shadow: -12px 11px 29px 8px rgba(0,0,0,0.67);
+	box-shadow: -12px 11px 29px 8px rgba(0,0,0,0.67);
+}
