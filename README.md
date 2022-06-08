@@ -1,17 +1,17 @@
 # MEDIHOPE_J2EE_IND
-<img align="center" alt="PIC" src="/MEDIHOPE/pic(1).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(2).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(3).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(4).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(5).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(6).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(7).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(8).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(9).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(10).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(11).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(12).png" width = "20%" heignt = "30%"/>
-<img align="center" alt="PIC" src="pic(13).png" width = "20%" heignt = "30%"/>
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(1).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(2).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(3).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(4).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(5).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(6).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(7).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(8).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(9).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(10).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(11).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(12).png)
+![My Remote Image](https://github.com/debajyatibanerjee0002/MEDIHOPE_J2EE_IND/blob/main/pic%20(13).png)
 
 
 This is a j2ee project based on JSP, SERVLET, ORACLE_DB including SERVLET MAPPING. Here you can book ambulance and hospital. This is a demo project.
