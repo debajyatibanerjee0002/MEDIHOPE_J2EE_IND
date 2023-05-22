@@ -33,7 +33,10 @@ public class HospitalBook extends HttpServlet {
 		
 		try
 		{
-			conn = SingletonConnection.getSingletonConnection();
+			conn = SingletonConnection.getSingletonConnection("medi_hope");
+			
+			String email = request.getParameter("email");
+//			System.out.println(email);
 			
 			String hname = request.getParameter("hname");
 			String phno = request.getParameter("phno");
@@ -41,8 +44,10 @@ public class HospitalBook extends HttpServlet {
 			String age = request.getParameter("age");
 			
 			String name,ph_no,zip;
+			int beds;
 			
-			String queryOne = "SELECT * FROM MEDIHOPE_REG_HOS WHERE NAME=?";
+			
+			String queryOne = "SELECT * FROM medihope_reg_hos WHERE NAME=?";
 			psmt = conn.prepareStatement(queryOne);
 			psmt.setString(1, hname);
 			
@@ -51,18 +56,28 @@ public class HospitalBook extends HttpServlet {
 			{
 				name = rs.getString("NAME");
 				ph_no = rs.getString("PH_NO");
+				beds = rs.getInt("BEDS")-1;
 				zip = rs.getString("ZIP");
 				
-				String queryTwo = "INSERT INTO MEDIHOPE_CART VALUES(?,?,?)";
+				String queryThree = "UPDATE medihope_reg_hos SET BEDS=? WHERE NAME=?";
+				psmt = conn.prepareStatement(queryThree);
+				psmt.setInt(1, beds);
+				psmt.setString(2, name);
+				
+				psmt.executeUpdate();
+				
+				String queryTwo = "INSERT INTO medihope_cart VALUES(?,?,?,?)";
 				psmt = conn.prepareStatement(queryTwo);
 				psmt.setString(1, name);
 				psmt.setString(2, ph_no);
 				psmt.setString(3, zip);
+				psmt.setString(4, email);
 				
 				psmt.executeUpdate();
 			}
 			
-			String query = "INSERT INTO MEDIHOPE_BOOK_HOS VALUES(?,?,?,?)";
+			
+			String query = "INSERT INTO medihope_book_hos VALUES(?,?,?,?)";
 			psmt = conn.prepareStatement(query);
 			psmt.setString(1, phno);
 			psmt.setString(2, pname);

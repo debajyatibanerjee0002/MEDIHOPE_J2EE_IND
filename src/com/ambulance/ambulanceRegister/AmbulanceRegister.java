@@ -30,13 +30,13 @@ public class AmbulanceRegister extends HttpServlet {
 		
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String vcno = request.getParameter("vcno");
 			String phno = request.getParameter("phno");
 			String place = request.getParameter("place");
 			String zip = request.getParameter("zip");
 			
-			String query = "INSERT INTO MEDIHOPE_REG_AMB VALUES(?,?,?,?)";
+			String query = "INSERT INTO medihope_reg_amb VALUES(?,?,?,?)";
 			psmt = conn.prepareStatement(query);
 			
 			psmt.setString(1, vcno);

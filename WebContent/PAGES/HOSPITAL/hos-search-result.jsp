@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" import="java.util.ArrayList" import="com.hospital.hospitalClass.HospitalClass"%>
 <%
+	String email = (String) request.getAttribute("email");
 	ArrayList<HospitalClass> hospital = (ArrayList<HospitalClass>) request.getAttribute("hospitalData");
 %>
 
@@ -11,7 +12,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../../<%=request.getContextPath() %>/STYLE/css_boot/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" href="${pageContext.request.contextPath}/js_boot/bootstrap.bundle.min.js"></script>
+<!--  <script type="text/javascript" href="${pageContext.request.contextPath}/js_boot/bootstrap.bundle.min.js"></script> -->
+
+<script type="text/javascript" href="../STYLE/js_boot/bootstrap.bundle.min.js"></script>
 
 <%-- 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -162,19 +165,24 @@ body
 					    <tr>
 					      <th scope="col">VC NO</th>
 					      <th scope="col">PH NO</th>
+					      <th scope="col">BEDS</th>
 					      <th scope="col">BOOK</th>
 					    </tr>
 					  </thead>
 					  
 					  <tbody>
 					  <%
+					  
+//					  if(hospital.length()==0)
+	//				  {}
 					  for(HospitalClass hos: hospital)
 					  {
 					  %>
 					    <tr>
 					      <td><%=hos.getName() %></td>
 					      <td><%=hos.getPhno() %></td>
-					      <td><a href="PAGES/HOSPITAL/hos-book.jsp?val=<%=hos.getName() %>" class="btn btn-success btn-cus">BOOK</a></td>
+					      <td><%=hos.getBeds() %></td>
+					      <td><a href="PAGES/HOSPITAL/hos-book.jsp?val=<%=hos.getName() %>&email=<%=email %>" class="btn btn-success btn-cus">BOOK</a></td>
 					    </tr>
 					   <%
 					  }

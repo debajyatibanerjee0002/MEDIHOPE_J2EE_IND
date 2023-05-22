@@ -28,19 +28,23 @@ public class HospitalSearch extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		String email = request.getParameter("email");
+//		System.out.println(email);
+		
 		PreparedStatement psmt;
 		ArrayList<HospitalClass> hospitalClass = new ArrayList<HospitalClass>();
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String searchVal = "";
 			searchVal=request.getParameter("searchVal");
 			
-			String query = "SELECT * FROM MEDIHOPE_REG_HOS WHERE PLACE=? OR ZIP=?";
+			String query = "SELECT * FROM medihope_reg_hos WHERE BEDS>? AND (PLACE=? OR ZIP=?)";
 			psmt = conn.prepareStatement(query);
 			
-			psmt.setString(1, searchVal);
+			psmt.setInt(1, 0);
 			psmt.setString(2, searchVal);
+			psmt.setString(3, searchVal);
 			
 			ResultSet rs = psmt.executeQuery();
 			while(rs.next())
@@ -48,8 +52,12 @@ public class HospitalSearch extends HttpServlet {
 				HospitalClass obj = new HospitalClass();
 				obj.setName(rs.getString("NAME"));
 				obj.setPhno(rs.getString("PH_NO"));
+				obj.setBeds(rs.getInt("BEDS"));
 				hospitalClass.add(obj);
 			}
+			
+			
+			
 			if(searchVal.equals(""))
 			{
 				response.sendRedirect("PAGES/AMBULANCE/amb-search.jsp");
@@ -57,6 +65,7 @@ public class HospitalSearch extends HttpServlet {
 //			HttpSession session = request.getSession();
 //			session.setAttribute("ambulanceData", ambulanceClass);
 			request.setAttribute("hospitalData", hospitalClass);
+			request.setAttribute("email", email);
 //			response.sendRedirect("PAGES/AMBULANCE/amb-search-result.jsp");
 			request.getRequestDispatcher("PAGES/HOSPITAL/hos-search-result.jsp").forward(request, response);
 			conn.close();

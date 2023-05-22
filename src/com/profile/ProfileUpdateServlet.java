@@ -33,7 +33,7 @@ public class ProfileUpdateServlet extends HttpServlet {
 		
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String email = request.getParameter("email");
 			String name = request.getParameter("name");
 			String password = request.getParameter("password"); //MN==
@@ -68,7 +68,7 @@ public class ProfileUpdateServlet extends HttpServlet {
 				
 			
 			
-			String query = "UPDATE MEDIHOPE_USER SET NAME=? WHERE EMAIL=?";
+			String query = "UPDATE medihope_user SET NAME=? WHERE EMAIL=?";
 			psmt = conn.prepareStatement(query);
 			
 			psmt.setString(1, name);

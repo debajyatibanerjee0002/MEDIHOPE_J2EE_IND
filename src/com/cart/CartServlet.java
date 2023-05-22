@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.connection.SingletonConnection;
 
@@ -28,14 +29,18 @@ public class CartServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		HttpSession session = request.getSession();
+		String email = (String)session.getAttribute("email");
+		
 		PreparedStatement psmt;
 		ArrayList<CartClass> cartClass = new ArrayList<CartClass>();
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			
-			String query = "SELECT * FROM MEDIHOPE_CART";
+			String query = "SELECT * FROM medihope_cart WHERE EMAIL=?";
 			psmt = conn.prepareStatement(query);
+			psmt.setString(1, email);
 			
 			ResultSet rs = psmt.executeQuery();
 			while(rs.next())
@@ -45,6 +50,7 @@ public class CartServlet extends HttpServlet {
 				obj.setName(rs.getString("NAME"));
 				obj.setPhno(rs.getString("PH_NO"));
 				obj.setZip(rs.getString("ZIP"));
+				obj.setEmail(rs.getString("EMAIL"));
 				cartClass.add(obj);
 			}
 			request.setAttribute("cartData", cartClass);

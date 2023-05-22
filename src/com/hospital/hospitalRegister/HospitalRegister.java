@@ -34,19 +34,21 @@ public class HospitalRegister extends HttpServlet {
 		
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String hName = request.getParameter("hName");
 			String phno = request.getParameter("phno");
 			String place = request.getParameter("place");
 			String zip = request.getParameter("zip");
+			int beds = Integer.parseInt(request.getParameter("beds"));
 			
-			String query = "INSERT INTO MEDIHOPE_REG_HOS VALUES(?,?,?,?)";
+			String query = "INSERT INTO medihope_reg_hos VALUES(?,?,?,?,?)";
 			psmt = conn.prepareStatement(query);
 			
 			psmt.setString(1, hName);
 			psmt.setString(2, phno);
 			psmt.setString(3, place);
 			psmt.setString(4, zip);
+			psmt.setInt(5, beds);
 			
 			int rn = psmt.executeUpdate();
 			

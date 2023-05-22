@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" import="java.util.ArrayList" import="com.ambulance.ambulanceClass.AmbulanceClass"%>
 <%
+	String email = (String) request.getAttribute("email");
 	ArrayList<AmbulanceClass> ambulance = (ArrayList<AmbulanceClass>) request.getAttribute("ambulanceData");
 %>
 
@@ -11,12 +12,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="../../<%=request.getContextPath() %>/STYLE/css_boot/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" href="${pageContext.request.contextPath}/js_boot/bootstrap.bundle.min.js"></script>
+<!--  <script type="text/javascript" href="${pageContext.request.contextPath}/js_boot/bootstrap.bundle.min.js"></script> -->
 
-<%-- 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
---%>
+<script type="text/javascript" href="../STYLE/js_boot/bootstrap.bundle.min.js"></script>
+
 <style>
 *
 {
@@ -174,7 +173,7 @@ body
 					    <tr>
 					      <td><%=amb.getVlno() %></td>
 					      <td><%=amb.getPhno() %></td>
-					      <td><a href="PAGES/AMBULANCE/amb-book.jsp?val=<%=amb.getVlno() %>" class="btn btn-success btn-cus">BOOK</a></td>
+					      <td><a href="PAGES/AMBULANCE/amb-book.jsp?val=<%=amb.getVlno() %>&email=<%=email %>" class="btn btn-success btn-cus">BOOK</a></td>
 					    </tr>
 					   <%
 					  }
