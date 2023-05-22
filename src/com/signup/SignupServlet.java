@@ -33,14 +33,14 @@ public class SignupServlet extends HttpServlet {
 		
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String email = request.getParameter("email");
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
 			PasswordEncodingDecoding passEncoded = new PasswordEncodingDecoding();
 			String pass = passEncoded.encoding(password);
 			
-			String query = "INSERT INTO MEDIHOPE_USER VALUES(?,?,?)";
+			String query = "INSERT INTO medihope_user VALUES(?,?,?)";
 			psmt = conn.prepareStatement(query);
 			
 			psmt.setString(1, email);

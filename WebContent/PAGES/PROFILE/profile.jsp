@@ -44,7 +44,7 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" action="/MEDIHOPE/ProfileUpdateServlet" method="post">
+			<form class="form-container" action="/Blood_Finder/ProfileUpdateServlet" method="post">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label" style="font-size:20px; font-style:italic; color:#b0eabd">EDIT YOUR PROFILE</label>
 			  </div>

@@ -1,8 +1,8 @@
 <%
-	String name = (String)request.getAttribute("name");
-	String email = (String)request.getAttribute("email");
-	String pass = (String)request.getAttribute("pass");
-	
+	String name = (String)session.getAttribute("name");
+	String email = (String)session.getAttribute("email");
+	String pass = (String)session.getAttribute("pass");
+	session.setAttribute("email", email);
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -115,7 +115,7 @@ button:hover
       </ul>
       <h4>Hello,</h4>
       <a href="./PROFILE/profile.jsp"><h5>${name}</h5></a>
-      <a href="/MEDIHOPE/CartServlet" class="btn btn-outline-primary cart">CART</a>
+      <a href="/Blood_Finder/CartServlet" class="btn btn-outline-primary cart">CART</a>
       <a href="./logout.jsp" class="btn btn-outline-danger margin-left margin-right">LOG OUT</a>
     </div>
   </div>
@@ -127,23 +127,32 @@ button:hover
 
 
 <div class="container-fluid form">
-		<div class="col-md-6 col-sm-4 col-xs-12">
+		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="col-md-6 col-sm-4 col-xs-12" style="margin-left:150px;">HOSPITAL</div>
 			<form class="form-container">
 			  <img class="img-con" src="../IMAGES/hospital.png" alt="">
-			  <a href="HOSPITAL/hos-search.jsp" class="btn btn-success btn-cus">BOOK</a>
-			  <a href="HOSPITAL/hos-reg.jsp" class="btn btn-danger btn-cus">REG</a>
+			  <a href="HOSPITAL/hos-search.jsp?val=<%=email %>" class="btn btn-success btn-cus">BOOK</a>
+			  <a href="HOSPITAL/hos-reg.jsp" class="btn btn-danger btn-cus">REGISTER</a>
 			</form>
 		</div>
-		<div class="col-md-6 col-sm-4 col-xs-12">
+		<div class="col-md-4 col-sm-4 col-xs-12">
 			<div class="col-md-6 col-sm-4 col-xs-12" style="margin-left:150px;">AMBULANCE</div>
 			<form class="form-container">
 			  <img class="img-con" src="../IMAGES/amb.png" alt="">
-			  <a href="AMBULANCE/amb-search.jsp" class="btn btn-success btn-cus">BOOK</a>
-			  <a href="AMBULANCE/amb-reg.jsp" class="btn btn-danger btn-cus">REG</a>
+			  <a href="AMBULANCE/amb-search.jsp?val=<%=email %>" class="btn btn-success btn-cus">BOOK</a>
+			  <a href="AMBULANCE/amb-reg.jsp" class="btn btn-danger btn-cus">REGISTER</a>
+			</form>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<div class="col-md-6 col-sm-4 col-xs-12" style="margin-left:150px;">BLOOD BANK</div>
+			<form class="form-container">
+			  <img class="img-con" src="../IMAGES/hospital.png" alt="">
+			  <a href="../home.jsp?val=${name}" class="btn btn-success btn-cus">BOOK</a>
+			  <a href="/Blood_Finder/BankRegistration.jsp" class="btn btn-danger btn-cus">REGISTER</a>
 			</form>
 		</div>
 </div>
+
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
 </body>

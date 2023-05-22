@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>MEDIHOPE</display-name>
+  <display-name>Blood_Finder</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -24,5 +24,13 @@
   <servlet-mapping>
     <servlet-name>Cart</servlet-name>
     <url-pattern>/CartDeleteServlet/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserViewServlet</servlet-name>
+    <servlet-class>com.UserViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserViewServlet</servlet-name>
+    <url-pattern>/UserViewServlet/*</url-pattern>
   </servlet-mapping>
 </web-app>

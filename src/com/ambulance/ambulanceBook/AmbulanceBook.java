@@ -32,7 +32,9 @@ public class AmbulanceBook extends HttpServlet {
 		
 		try
 		{
-			conn = SingletonConnection.getSingletonConnection();
+			conn = SingletonConnection.getSingletonConnection("medi_hope");
+			
+			String email = request.getParameter("email");
 			
 			String vlno = request.getParameter("vlno");
 			String phno = request.getParameter("phno");
@@ -40,8 +42,9 @@ public class AmbulanceBook extends HttpServlet {
 			String dplace = request.getParameter("dplace");
 			
 			String vl_no,ph_no,zip;
+			int available;
 			
-			String queryOne = "SELECT * FROM MEDIHOPE_REG_AMB WHERE VL_NO=?";
+			String queryOne = "SELECT * FROM medihope_reg_amb WHERE VL_NO=?";
 			psmt = conn.prepareStatement(queryOne);
 			psmt.setString(1, vlno);
 			
@@ -51,19 +54,29 @@ public class AmbulanceBook extends HttpServlet {
 				vl_no = rs.getString("VL_NO");
 				ph_no = rs.getString("PH_NO");
 				zip = rs.getString("ZIP");
+				available =  rs.getInt("available")-1;
 				
-				String queryTwo = "INSERT INTO MEDIHOPE_CART VALUES(?,?,?)";
+				
+				String queryTwo = "INSERT INTO medihope_cart VALUES(?,?,?,?)";
 				psmt = conn.prepareStatement(queryTwo);
 				psmt.setString(1, vl_no);
 				psmt.setString(2, ph_no);
 				psmt.setString(3, zip);
+				psmt.setString(4, email);
+				
+				psmt.executeUpdate();
+				
+				String queryThree = "UPDATE medihope_reg_AMB SET AVAILABLE=? WHERE VL_NO=?";
+				psmt = conn.prepareStatement(queryThree);
+				psmt.setInt(1, 0);
+				psmt.setString(2, vlno);
 				
 				psmt.executeUpdate();
 			}
 			
 			
 			
-			String query = "INSERT INTO MEDIHOPE_BOOK_AMB VALUES(?,?,?,?)";
+			String query = "INSERT INTO medihope_book_amb VALUES(?,?,?,?)";
 			psmt = conn.prepareStatement(query);
 			psmt.setString(1, phno);
 			psmt.setString(2, splace);

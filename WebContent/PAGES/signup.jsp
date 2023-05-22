@@ -42,7 +42,7 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" autocomplete="off" action="/MEDIHOPE/SignupServlet" method="post">
+			<form class="form-container" autocomplete="off" action="/Blood_Finder/SignupServlet" method="post">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label">Email address</label>
 			    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="abc@gmail.com">

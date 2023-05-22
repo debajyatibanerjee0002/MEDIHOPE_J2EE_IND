@@ -1,3 +1,7 @@
+<%
+	String email = request.getParameter("val");
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -41,7 +45,8 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" action="/MEDIHOPE/HospitalSearch">
+			<form class="form-container" action="/Blood_Finder/HospitalSearch">
+			  <input type="hidden" class="btn btn-primary" name="email" value="<%=email%>">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label" style="font-size:20px; font-style:italic">BOOK YOUR HOSPITAL</label>
 			  </div>

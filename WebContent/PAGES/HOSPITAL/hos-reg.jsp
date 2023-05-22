@@ -42,7 +42,7 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" action="/MEDIHOPE/HospitalRegister" method="post">
+			<form class="form-container" action="/Blood_Finder/HospitalRegister" method="post">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label" style="font-size:20px; font-style:italic; color:#b0eabd">REGISTER YOUR HOSPITAL</label>
 			  </div>
@@ -52,15 +52,19 @@
 			  </div>
 			  <div class="mb-3">
 			    <label for="exampleInputPassword1" class="form-label">ENTER PHONE NO</label>
-			    <input type="text" class="form-control" id="exampleInputPassword1" name="phno" placeholder="1234567890" required>
+			    <input type="text" class="form-control" id="exampleInputPassword1" name="phno" placeholder="1234567890" pattern="[789][0-9]{9}" required>
 			  </div>
 			  <div class="mb-3">
 			    <label for="exampleInputPassword1" class="form-label">ENTER PLACE</label>
 			    <input type="text" class="form-control" id="exampleInputPassword1" name="place" placeholder="KOLKATA" required>
 			  </div>
 			  <div class="mb-3">
+			    <label for="exampleInputPassword1" class="form-label">ENTER BEDS</label>
+			    <input type="number" class="form-control" id="exampleInputPassword1" name="beds" placeholder="00" required>
+			  </div>
+			  <div class="mb-3">
 			    <label for="exampleInputPassword1" class="form-label">ENTER ZIP CODE</label>
-			    <input type="text" class="form-control" id="exampleInputPassword1" name="zip" placeholder="700001" required>
+			    <input type="text" class="form-control" id="exampleInputPassword1" name="zip" placeholder="700001" pattern="[789][0-9]{5}" required>
 			  </div>
 			  <input type="submit" value="REGISTER" class="btn btn-danger">
 			</form>

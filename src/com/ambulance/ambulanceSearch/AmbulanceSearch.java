@@ -32,19 +32,21 @@ public class AmbulanceSearch extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
+		String email = request.getParameter("email");
+		
 		PreparedStatement psmt;
 		ArrayList<AmbulanceClass> ambulanceClass = new ArrayList<AmbulanceClass>();
 		try
 		{
-			Connection conn = SingletonConnection.getSingletonConnection();
+			Connection conn = SingletonConnection.getSingletonConnection("medi_hope");
 			String searchVal = "";
 			searchVal=request.getParameter("searchVal");
 			
-			String query = "SELECT * FROM MEDIHOPE_REG_AMB WHERE PLACE=? OR ZIP=?";
+			String query = "SELECT * FROM medihope_reg_amb WHERE AVAILABLE=? AND (PLACE=? OR ZIP=?)";
 			psmt = conn.prepareStatement(query);
-			
-			psmt.setString(1, searchVal);
+			psmt.setInt(1,1);
 			psmt.setString(2, searchVal);
+			psmt.setString(3, searchVal);
 			
 			ResultSet rs = psmt.executeQuery();
 			while(rs.next())
@@ -61,6 +63,7 @@ public class AmbulanceSearch extends HttpServlet {
 //			HttpSession session = request.getSession();
 //			session.setAttribute("ambulanceData", ambulanceClass);
 			request.setAttribute("ambulanceData", ambulanceClass);
+			request.setAttribute("email", email);
 //			response.sendRedirect("PAGES/AMBULANCE/amb-search-result.jsp");
 			request.getRequestDispatcher("PAGES/AMBULANCE/amb-search-result.jsp").forward(request, response);
 			conn.close();

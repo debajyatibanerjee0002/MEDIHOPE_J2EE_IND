@@ -1,4 +1,6 @@
-
+<%
+	String email = request.getParameter("email");
+%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -44,7 +46,8 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" action="/MEDIHOPE/AmbulanceBook" method="post">
+			<form class="form-container" action="/Blood_Finder/AmbulanceBook" method="post">
+			  <input type="hidden" class="btn btn-primary" name="email" value="<%=email%>">
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label" style="font-size:20px; font-style:italic">BOOK YOUR AMBULANCE</label>
 			  </div>

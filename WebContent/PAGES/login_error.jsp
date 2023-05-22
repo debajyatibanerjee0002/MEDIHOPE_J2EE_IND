@@ -38,7 +38,7 @@
 <div class="container-fluid form">
 	<div class="">
 		<div class="col-md-10 col-sm-4 col-xs-12">
-			<form class="form-container" action="/MEDIHOPE/LoginCheckServlet" method="post">
+			<form class="form-container" action="/Blood_Finder/LoginCheckServlet" method="post">
 			  <div class="mb-3">
 			  	<div id="emailHelp" class="form-text" style="color:red">Please enter correct email or password</div>
 			    <label for="exampleInputEmail1" class="form-label">Email address</label>

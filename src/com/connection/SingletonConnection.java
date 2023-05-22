@@ -9,12 +9,16 @@ public class SingletonConnection {
 	private SingletonConnection()
 	{}
 	
-	public static Connection getSingletonConnection()
+	public static Connection getSingletonConnection(String database)
 	{
-		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		String userid = "system";
-		String password = "debajyati";
+		String url="";
+		if(database.equals("blood_finder"))
+			url="jdbc:mysql://localhost:3306/blood_finder?useSLL=false";
+		else
+			url="jdbc:mysql://localhost:3306/medi_hope?useSLL=false";
+		String driver = "com.mysql.cj.jdbc.Driver";
+		String userid = "root";
+		String password = "";
 		
 		try
 		{
